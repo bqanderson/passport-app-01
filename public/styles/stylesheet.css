@@ -1,0 +1,57 @@
+body {
+  background: skyblue;
+}
+
+h1 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h1 small {
+  text-transform: none;
+  font-weight: normal;
+}
+
+#seachField {
+  float: right;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  line-height: 12px;
+}
+
+strong {
+  font-weight: 900;
+  color: darkslategray;
+}
+
+.form-group, .btn {
+  font-family: 'Lato', sans-serif;
+}
+
+.assignForm {
+  width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.btn-outline {
+    background-color: white;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-primary.btn-outline:hover {
+    color: #fff;
+}
+
+.search {
+  margin-bottom: 15px;
+}

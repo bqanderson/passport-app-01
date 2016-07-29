@@ -1,0 +1,77 @@
+<!-- Info Table -->
+<form class="form-inline" role="form">
+  <div class="form-group has-success has-feedback">
+    <input type="text" class="form-control" ng-model="rest.searchName" placeholder="Search by Name">
+    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+  </div>
+  <button ng-click="rest.search(rest.searchName)" class="btn btn-primary btn-sm">Search</button>
+  <button ng-click="rest.getAssignments()" class="btn btn-primary btn-outline btn-sm">Show All</button>
+
+</form>
+
+<div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Date</th>
+            <th><p class="center">Assignment</p></th>
+            <th><p class="center">Score</p></th>
+            <th><p class="center">Edit Record</p></th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="assignment in rest.assignments track by $index">
+          <tr>
+            <td><p>{{assignment.studentName}}</p></td>
+            <td>{{assignment.dateCompleted | date: 'short'}}</td>
+            <td><p class="center">{{assignment.assignmentNumber}}</p></td>
+            <td><p class="center">{{assignment.score}}</p></td>
+            <td>
+                <button type="button" class="btn btn-success btn-xs" ng-click="rest.showEditor($index)">Edit</button> |
+                <button type="button" class="btn btn-danger btn-xs" ng-click="rest.deleteAssignment(assignment._id)">Delete</button>
+            </td>
+          </tr>
+
+          <!-- this is for updating the record -->
+          <tr ng-show="rest.assignments[$index].clicked">
+            <td>
+              <input type="text" class="form-control" placeholder="First and Last Name" ng-model="rest.updateStudentName" />
+            </td>
+            <td>
+            </td>
+            <td>
+              <input type="number" class="form-control" placeholder="Assignment Number" ng-model="rest.updateAssignmentNumber" />
+            </td>
+            <td>
+              <input type="number" class="form-control" placeholder="Assignment Score" ng-model="rest.updateScore" />
+            </td>
+            <td>
+              <button class="btn btn-primary btn-sm" ng-click="rest.updateAssignment($index)">Update</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </li>
+  </div>
+
+  <!-- Add Record Form -->
+  <div class="assignForm">
+    <form class="form-inline">
+      <div class="form-group">
+        <label>Student Name:</label>
+        <input type="text" class="form-control" placeholder="First and Last Name" ng-model="rest.studentName" />
+      </div>
+      <div class="form-group">
+        <label>Assignment Number:</label>
+        <input type="number" class="form-control" placeholder="Assignment Number" ng-model="rest.assignmentNumber" />
+      </div>
+      <div class="form-group">
+        <label>Score:</label>
+        <input type="number" class="form-control" placeholder="Assignment Score" ng-model="rest.score" />
+      </div>
+      <button class="btn btn-primary" ng-click="rest.createAssignment()">Enter Assignment and Score</button>
+    </form>
+  </div>

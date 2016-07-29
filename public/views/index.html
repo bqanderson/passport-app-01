@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="restApp">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700|Lato:400,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/stylesheet.css"  />
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <base href="/" />
+    <title>Student Assignments</title>
+  </head>
+  <body ng-controller="RestController as rest">
+    <div class="container">
+      <!-- Header -->
+      <div class="page-header">
+        <h1>Student Assignment Scores: <small>A MEAN stack app!</small></h1>
+      </div>
+      <div ng-view>
+
+      </div>
+    </div>
+  </body>
+</html>
